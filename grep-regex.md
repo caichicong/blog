@@ -1,3 +1,5 @@
+[首页](http://xcoder.hexccc.com)
+
 ## grep命令中使用正则表达式
 
 grep命令在Linux下很常用。但是grep的正则表达式跟我们平常在javascript和php下使用的正则表达式有很多不同的地方。
