@@ -17,13 +17,31 @@
     }
     
 
-三个方法
+$observer
+
+eventPropArr
+
+propertyChangedHandler
+
+$observeProps.$observerPath
+
+## Object.defineProperty
+
+
+
+## 三个方法
     
-    onPropertyChanged
+### onPropertyChanged
+
+当对象变化的时候，
     
-    mock
+### mock
     
-    watch
+遍历obaa.methods
+    
+### watch
+
+
 
 ## 辅助方法
 
@@ -59,3 +77,7 @@ obaa.set
       } else {
         win.obaa = obaa
       }
+
+## 参考资料
+
+https://www.cnblogs.com/chenguangliang/p/5856701.html
