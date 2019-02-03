@@ -21,7 +21,16 @@ obaa.add
 
 obaa.set
 
-可以用在CMD规范和AMD规范下的模块。 如果不需要模块化的功能，则直接把obaa对象作为windows对象的一个属性
+
+给Array对象增加方法
+
+    Array.prototype.size = function(length) {
+        this.length = length
+    }
+
+这段代码使得obaa可以成为在ommonJS规范和AMD规范下的模块。 
+
+如果不需要模块化的功能，则直接把obaa对象作为windows对象的一个属性（即全局变量）。
 
       if (
         typeof module != 'undefined' &&
