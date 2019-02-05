@@ -70,12 +70,36 @@ $observeProps.$observerPath
     obaa.isFunction // 判断是否函数
     
     
-obaa._getRootName
+## obaa._getRootName
 
-obaa.add
+obaa._getRootName 查找对象上的属性
 
-obaa.set
+## obaa.set 和 obaa.add
 
+如果对象本身没有某个属性，那么要使用 `obaa.set` 这个方法
+
+    //if obj.c is undefined
+    obaa.set(obj, 'c', 3)
+    obj.c = 4 //trigger observe callback
+    
+    //if obj.c is undefined
+    obj.c = 3
+    obj.c = 4 //don't trigger observe callback
+    
+obaa.set 实现如下，exec参数的作用暂时还没看懂
+
+    obaa.set = function(obj, prop, value, exec) {
+        if (!exec) {
+          obj[prop] = value
+        }
+        var $observer = obj.$observer
+        $observer.watch(obj, prop)
+        if (exec) {
+          obj[prop] = value
+        }
+    }
+
+`obaa.add` 方法其实跟 `obaa.set` 类似，只是更加简单
 
 给Array对象增加方法
 
@@ -104,7 +128,7 @@ obaa.set
       
       
     
-这段代码给数组对象增加N个以pure开头的方法，这个新的方法不回触发回调
+这段代码给数组对象增加N个以pure开头的方法，这些新的方法不回触发回调
       
     target[
     'pure' + item.substring(0, 1).toUpperCase() + item.substring(1)
