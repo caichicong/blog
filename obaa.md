@@ -9,6 +9,23 @@
     obaa.methods.forEach(function(item) {
         ...
     }
+    
+    
+obaa.triggerStr 都是数组的方法
+    
+    obaa.triggerStr = [
+    'concat',
+    'copyWithin',
+    'fill',
+    'pop',
+    'push',
+    'reverse',
+    'shift',
+    'sort',
+    'splice',
+    'unshift',
+    'size'
+    ].join(',')
 
 `obaa.triggerStr` 只在这里使用了一次
 
@@ -24,6 +41,8 @@ eventPropArr
 propertyChangedHandler
 
 $observeProps.$observerPath
+
+初始一般都是"#"
 
 ## Object.defineProperty
 
@@ -63,6 +82,11 @@ obaa.set
     Array.prototype.size = function(length) {
         this.length = length
     }
+    
+这样修改arr的length属性就不会触发回调
+    
+    arr.size(2) //trigger observe callback
+    arr.length = 2 //don't trigger observe callback
 
 这段代码使得obaa可以成为在ommonJS规范和AMD规范下的模块。 
 
@@ -77,7 +101,25 @@ obaa.set
       } else {
         win.obaa = obaa
       }
+      
+      
+    
+这段代码给数组对象增加N个以pure开头的方法，这个新的方法不回触发回调
+      
+    target[
+    'pure' + item.substring(0, 1).toUpperCase() + item.substring(1)
+      ] = function() {
+      return Array.prototype[item].apply(
+        this,
+        Array.prototype.slice.call(arguments)
+      )
+    }
+    
+例如对应push方法，增加了一个purePush 方法 
 
+    arr.purePush(111) // 这样子不会触发回调
+    
+    
 ## 参考资料
 
 https://www.cnblogs.com/chenguangliang/p/5856701.html
