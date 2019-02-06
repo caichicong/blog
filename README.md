@@ -6,5 +6,3 @@
 
 [Thinkphp框架filter参数漏洞](/thinkphp-filter-code-vulnerability)
 
-
-http://www.cnnvd.org.cn/web/xxk/ldxqById.tag?CNNVD=CNNVD-201812-489
