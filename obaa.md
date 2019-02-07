@@ -146,4 +146,9 @@ obaa.set 实现如下，exec参数的作用暂时还没看懂
     
 ## 参考资料
 
-https://www.cnblogs.com/chenguangliang/p/5856701.html
+[https://www.cnblogs.com/chenguangliang/p/5856701.html](https://www.cnblogs.com/chenguangliang/p/5856701.html)
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://xcoder.hexccc.com/cc.png"></a>
+    
+This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/).
